@@ -1,0 +1,22 @@
+body{
+    color: rgb(3, 3, 17);
+}
+.intro{
+    font-weight: bold;
+    font-size: large;
+}
+.question{
+    font-size: large;
+    font-weight: bold;
+}
+.choice-container{
+    display: flex;
+    margin-bottom:o.8rem ;
+    width: 100%;
+    border-radius: 6px;
+    background: rgb(201, 12, 12);
+    font-size: 18px;
+}
+.choice-container:hover{
+    cursor: pointer;
+}
