@@ -6,7 +6,11 @@
     background-color: lightsteelblue;
   }
   
-
+.topmenu a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 
 .health-btn {
@@ -24,4 +28,15 @@
 h3 {
     font-style: italic;
 }
+
+.contact {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+
+}
+
 
