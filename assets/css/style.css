@@ -1,4 +1,27 @@
-h1 {
+.header {
+    padding: 10px;
+    text-align: center;
     font-weight: bold;
-    color: lightskyblue;
+    color: gray;
+    background-color: lightsteelblue;
+  }
+  
+
+
+
+.health-btn {
+    background-color: lightsteelblue;
+    color:black;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 2%;
+    width: 20%;
+    height: 25%;
+    
 }
+
+h3 {
+    font-style: italic;
+}
+
