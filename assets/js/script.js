@@ -7,40 +7,51 @@ $(".health-btn").click(handler)
 function handler(){
 var bookData = $(this).data("watermelon");
 var dictionaryData = $(this).data("fruit");
-
+getBookData(bookData);
+// getDictionaryData(dictionaryData);
 }
 
 // console.log(testArray.Problem)
 //api
-var getBookData = function () {
-    var bookApi = "https://api.nytimes.com/svc/books/v3/lists/current/fiction.json?api-key=uIrGoWpSQ12GAANsuzS7wuSArsA9uYPK"
+var getBookData = function (bookData) {
+    //finds list we make on google books
+    var bookApi = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves" 
     fetch(bookApi).then(function (response) {
         response.json().then(function (data) {
-            console.log(data);
-            
-            
+      
+
+
+            //since the first search doesn't give you the actual books, this cycles through them
+           for( var i = 0; i < data.items.length; i++ ){
+               if(data.items[i].title === bookData){
+                //send out bookshelf data from here
+
+                   console.log(data.items[i].description)
+                   var butt = data.items[i].id;
+                   
+                   var bookVolume = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves/" + butt + "/volumes"
+                   fetch(bookVolume).then(function (response) {
+                    response.json().then(function (volume) {
+                        //send out individual book data from here
+                        console.log(volume)
+                    });
+                   });
+               }
+           };
         });
     });
-
 };
-var getLocalBookData = function (something) {
 
-for (var i = 0; i < testArray.length; i++){
-    if(something = testArray[i].Problem){
-        console.log(testArray[i].Problem);
+//this will be for the search
+$(document).ready(function(){
+    var outputList =document.getElementById("oawuberaou");
+})
 
-    }
-}
-   
-   
-   
-
-};
 //book as object with depression anxiety etc
 
-getLocalBookData("Anxiety");
 
-getBookData();
+
+getBookData("Anxiety");
 
 
 
