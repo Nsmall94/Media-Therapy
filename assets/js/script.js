@@ -26,10 +26,10 @@ var getBookData = function (bookData) {
                if(data.items[i].title === bookData){
                 //send out bookshelf data from here
                  var title = data.items[i].title;
-                  console.log(title)
+                //   console.log(title)
                    var description = data.items[i].description
-                   displayData(description);
-                   displayData(title);
+                   displayTitle(description, title);
+                   
                    
                    var butt = data.items[i].id;
                    
@@ -39,11 +39,11 @@ var getBookData = function (bookData) {
                         //make and send variables here
                         for( var i = 0; i < volume.items.length; i++ ){
                         // console.log(volume.items[i])
-                        // var image = volume.items[i].volumeInfo.imageLinks.thumbnail;
+                        var image = volume.items[i].volumeInfo.imageLinks.thumbnail;
                         // var titles = volume.items[i].volumeInfo.title;
-                        // var authors = volume.items[i].volumeInfo.authors;
+                        // var authors = volume.items[i].volumeInfo.authors[0];
                         // var publishedDate = volume.items[i].volumeInfo.publishedDate;
-                        // displayData(authors);
+                        displayBooks(image);
                     }
                     });
                    });
@@ -53,10 +53,24 @@ var getBookData = function (bookData) {
     });
 };
 
-var displayData = function(title, description){
+var displayTitle = function(description, title){
     problemTitle.textContent = title;
-
+    console.log(title);
+    console.log(description);
 }
+var displayBooks = function(volume){
+    // for( var i = 0; i < volume.items[i].volumeInfo.authors.length; i++ ){
+
+var bookName = document.createElement("span");
+// $("#something").empty();
+bookName.textContent = volume;
+// bookName.appendChild(bookName);
+appendSectionOne.appendChild(bookName);
+    }
+
+
+
+// }
 
 //this will be for the search
 $(document).ready(function(){
