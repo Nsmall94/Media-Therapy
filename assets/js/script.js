@@ -1,6 +1,6 @@
 var btn = document.getElementById("btn");
-
-
+var appendSectionOne = document.querySelector(".something");
+var problemTitle = document.querySelector(".problem-title");
 
 $(".health-btn").click(handler)
 //if you have to dynamically update, use onclick: on("click", handler)
@@ -25,15 +25,26 @@ var getBookData = function (bookData) {
            for( var i = 0; i < data.items.length; i++ ){
                if(data.items[i].title === bookData){
                 //send out bookshelf data from here
-
-                   console.log(data.items[i].description)
+                 var title = data.items[i].title;
+                  console.log(title)
+                   var description = data.items[i].description
+                   displayData(description);
+                   displayData(title);
+                   
                    var butt = data.items[i].id;
                    
                    var bookVolume = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves/" + butt + "/volumes"
                    fetch(bookVolume).then(function (response) {
                     response.json().then(function (volume) {
-                        //send out individual book data from here
-                        console.log(volume)
+                        //make and send variables here
+                        for( var i = 0; i < volume.items.length; i++ ){
+                        // console.log(volume.items[i])
+                        // var image = volume.items[i].volumeInfo.imageLinks.thumbnail;
+                        // var titles = volume.items[i].volumeInfo.title;
+                        // var authors = volume.items[i].volumeInfo.authors;
+                        // var publishedDate = volume.items[i].volumeInfo.publishedDate;
+                        // displayData(authors);
+                    }
                     });
                    });
                }
@@ -41,6 +52,11 @@ var getBookData = function (bookData) {
         });
     });
 };
+
+var displayData = function(title, description){
+    problemTitle.textContent = title;
+
+}
 
 //this will be for the search
 $(document).ready(function(){
