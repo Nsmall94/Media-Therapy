@@ -76,7 +76,9 @@ var getBookData = function (bookData) {
 var displayTitle = function(refinedData){
     console.log(refinedData);
     problemTitle.textContent = refinedData.title;
+    problemTitle.classList = "center-align";
     problemSubTitle.textContent = refinedData.description;
+    problemSubTitle.classList = "center-align";
   
 }
 
@@ -88,10 +90,11 @@ var displayBooks = function(volume){
         
         // var titles = volume.items[i].volumeInfo.title;
         var img = new Image();
+        img.classList = "right-align"
     img.src = volume.items[i].volumeInfo.imageLinks.thumbnail;
 
         var bookEl = document.createElement("div");
-    bookEl.classList = "col align-self-end"
+    
 //style this bookEl class
 
     // var image = volume.items[i].volumeInfo.imageLinks.thumbnail;
@@ -99,17 +102,34 @@ var displayBooks = function(volume){
         var authors = volume.items[i].volumeInfo.authors;
         var bookName = document.createElement("span");
         bookName.textContent = " Author: "+ authors;
+        bookName.classList = "center-align book-div";
 
         var bookTitles = volume.items[i].volumeInfo.title;
         console.log(bookTitles)
         var bookTitlesSpan = document.createElement("span");
         bookTitlesSpan.textContent = bookTitles;
-        
+        bookTitlesSpan.classList = "center-align book-div";
+        bookEl.classList = " center-align description";
+var description = volume.items[i].volumeInfo.description;
+        var bookDescriptionSpan = document.createElement("span");
+bookDescriptionSpan.textContent = description;
+bookDescriptionSpan.classlist = "description";
+        linebreak = document.createElement("br");
+        linebreak2 = document.createElement("br");
+        linebreak3 = document.createElement("br");
+       
+       
         bookEl.appendChild(img);
-        bookEl.appendChild(bookTitlesSpan);
-        bookEl.appendChild(bookName);
+       bookEl.appendChild(linebreak);
         
-        console.log(authors);
+        bookEl.appendChild(bookTitlesSpan);
+        bookEl.appendChild(linebreak2);
+        bookEl.appendChild(bookName);
+        bookEl.appendChild(linebreak3);
+        bookEl.appendChild(bookDescriptionSpan);
+        
+       
+        
         appendSectionOne.appendChild(bookEl);
        //bookEl needs big upgrade
     }
