@@ -1,7 +1,7 @@
 var btn = document.getElementById("btn");
 var appendSectionOne = document.querySelector(".something");
 var problemTitle = document.querySelector(".problem-title");
-
+var problemSubTitle = document.querySelector(".problem-subtitle");
 $(".health-btn").click(handler)
 //if you have to dynamically update, use onclick: on("click", handler)
 function handler(){
@@ -24,27 +24,19 @@ var getBookData = function (bookData) {
             //since the first search doesn't give you the actual books, this cycles through them
            for( var i = 0; i < data.items.length; i++ ){
                if(data.items[i].title === bookData){
-                //send out bookshelf data from here
-                 var title = data.items[i].title;
-                //   console.log(title)
-                   var description = data.items[i].description
-                   displayTitle(description, title);
-                   
+                //send out title and description
+                 var refinedData = data.items[i];
+                 displayTitle(refinedData);
+              
                    
                    var butt = data.items[i].id;
                    
                    var bookVolume = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves/" + butt + "/volumes"
                    fetch(bookVolume).then(function (response) {
                     response.json().then(function (volume) {
-                        //make and send variables here
-                        for( var i = 0; i < volume.items.length; i++ ){
-                        // console.log(volume.items[i])
-                        var image = volume.items[i].volumeInfo.imageLinks.thumbnail;
-                        // var titles = volume.items[i].volumeInfo.title;
-                        // var authors = volume.items[i].volumeInfo.authors[0];
-                        // var publishedDate = volume.items[i].volumeInfo.publishedDate;
-                        displayBooks(image);
-                    }
+                        console.log(volume)
+                       //sends data display books for loop
+                       displayBooks(volume);
                     });
                    });
                }
@@ -53,31 +45,60 @@ var getBookData = function (bookData) {
     });
 };
 
-var displayTitle = function(description, title){
-    problemTitle.textContent = title;
-    console.log(title);
-    console.log(description);
+var displayTitle = function(refinedData){
+    console.log(refinedData);
+    problemTitle.textContent = refinedData.title;
+    problemSubTitle.textContent = refinedData.description;
+  
 }
-var displayBooks = function(volume){
-    // for( var i = 0; i < volume.items[i].volumeInfo.authors.length; i++ ){
 
-var bookName = document.createElement("span");
-// $("#something").empty();
-bookName.textContent = volume;
-// bookName.appendChild(bookName);
-appendSectionOne.appendChild(bookName);
+//this needs major stylin
+var displayBooks = function(volume){
+    $("#something").empty();
+    for( var i = 0; i < volume.items.length; i++ ){
+        // console.log(volume.items[i])
+        
+        // var titles = volume.items[i].volumeInfo.title;
+        var img = new Image();
+    img.src = volume.items[i].volumeInfo.imageLinks.thumbnail;
+
+        var bookEl = document.createElement("div");
+    bookEl.classList = "col align-self-end"
+//style this bookEl class
+
+    // var image = volume.items[i].volumeInfo.imageLinks.thumbnail;
+
+        var authors = volume.items[i].volumeInfo.authors;
+        var bookName = document.createElement("span");
+        bookName.textContent = " Author: "+ authors;
+
+        var bookTitles = volume.items[i].volumeInfo.title;
+        console.log(bookTitles)
+        var bookTitlesSpan = document.createElement("span");
+        bookTitlesSpan.textContent = bookTitles;
+        
+        bookEl.appendChild(img);
+        bookEl.appendChild(bookTitlesSpan);
+        bookEl.appendChild(bookName);
+        
+        console.log(authors);
+        appendSectionOne.appendChild(bookEl);
+       //bookEl needs big upgrade
+    }
+
+
     }
 
 
 
-// }
+
 
 //this will be for the search
 $(document).ready(function(){
     var outputList =document.getElementById("oawuberaou");
 })
 
-//book as object with depression anxiety etc
+
 
 
 
@@ -87,6 +108,14 @@ getBookData("Anxiety");
 
 
 
+
+
+
+
+// var bookName = document.createElement("span");
+
+// bookName.textContent = volume;
+// bookName.appendChild(bookName);
 
 
 
