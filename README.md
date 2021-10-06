@@ -18,5 +18,4 @@ The purpose of this page is ...
 Made By: 
 Dan Natale
 Symone Seldon
-Richard Liloia
 Nick Small
