@@ -1,22 +1,49 @@
-body{
-    color: rgb(3, 3, 17);
-}
-.intro{
+.header {
+    padding: 10px;
+    text-align: center;
     font-weight: bold;
-    font-size: large;
+    color: gray;
+    background-color: lightsteelblue;
+    
+  }
+
+.logo {
+    font-family: Brush script MT;
 }
-.question{
-    font-size: large;
-    font-weight: bold;
-}
-.choice-container{
+  
+.topmenu {
     display: flex;
-    margin-bottom:o.8rem ;
-    width: 100%;
-    border-radius: 6px;
-    background: rgb(201, 12, 12);
-    font-size: 18px;
+    align-items: center;
+    justify-content: space-around;
+
 }
-.choice-container:hover{
-    cursor: pointer;
+
+
+.health-btn {
+    background-color: lightsteelblue;
+    color:black;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 15%;
+    width: 100%;
+    height: 25%;
+    
+}
+
+h3 {
+    font-style: italic;
+    
+    align-items: center;
+
+}
+
+.contact {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+
 }
