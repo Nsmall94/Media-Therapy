@@ -2,15 +2,43 @@ var btn = document.getElementById("btn");
 var appendSectionOne = document.querySelector(".something");
 var problemTitle = document.querySelector(".problem-title");
 var problemSubTitle = document.querySelector(".problem-subtitle");
+var userInputEl = document.querySelector("#user-form");
+var problem = document.querySelector("#book-search");
+var btn = document.querySelector("#btn");
+
 $(".health-btn").click(handler)
 //if you have to dynamically update, use onclick: on("click", handler)
 function handler(){
-var bookData = $(this).data("watermelon");
+var bookData = $(this).data("vegetable");
 var dictionaryData = $(this).data("fruit");
+
 getBookData(bookData);
 // getDictionaryData(dictionaryData);
 }
 
+
+function inputHandler(event) {
+    event.preventDefault();
+  
+    var problemData = problem.value.trim();
+    console.log(problemData);
+    if (problemData) {
+        console.log(problemData);
+        problem.value = "";
+        getBookData(problemData);
+        
+
+        // console.log(cityData)
+        // console.log(city.value);
+
+    }
+    else {
+alert("wrong");
+    }
+
+}
+
+userInputEl.addEventListener("submit", inputHandler);
 // console.log(testArray.Problem)
 //api
 var getBookData = function (bookData) {
@@ -29,9 +57,9 @@ var getBookData = function (bookData) {
                  displayTitle(refinedData);
               
                    
-                   var butt = data.items[i].id;
+                   var steve = data.items[i].id;
                    
-                   var bookVolume = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves/" + butt + "/volumes"
+                   var bookVolume = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves/" + steve + "/volumes"
                    fetch(bookVolume).then(function (response) {
                     response.json().then(function (volume) {
                         console.log(volume)
@@ -48,7 +76,9 @@ var getBookData = function (bookData) {
 var displayTitle = function(refinedData){
     console.log(refinedData);
     problemTitle.textContent = refinedData.title;
+    problemTitle.classList = "center-align";
     problemSubTitle.textContent = refinedData.description;
+    problemSubTitle.classList = "center-align";
   
 }
 
@@ -60,10 +90,11 @@ var displayBooks = function(volume){
         
         // var titles = volume.items[i].volumeInfo.title;
         var img = new Image();
+        img.classList = "right-align"
     img.src = volume.items[i].volumeInfo.imageLinks.thumbnail;
 
         var bookEl = document.createElement("div");
-    bookEl.classList = "col align-self-end"
+    
 //style this bookEl class
 
     // var image = volume.items[i].volumeInfo.imageLinks.thumbnail;
@@ -71,17 +102,34 @@ var displayBooks = function(volume){
         var authors = volume.items[i].volumeInfo.authors;
         var bookName = document.createElement("span");
         bookName.textContent = " Author: "+ authors;
+        bookName.classList = "center-align book-div";
 
         var bookTitles = volume.items[i].volumeInfo.title;
         console.log(bookTitles)
         var bookTitlesSpan = document.createElement("span");
         bookTitlesSpan.textContent = bookTitles;
-        
+        bookTitlesSpan.classList = "center-align book-div";
+        bookEl.classList = " center-align description";
+var description = volume.items[i].volumeInfo.description;
+        var bookDescriptionSpan = document.createElement("span");
+bookDescriptionSpan.textContent = description;
+bookDescriptionSpan.classlist = "description";
+        linebreak = document.createElement("br");
+        linebreak2 = document.createElement("br");
+        linebreak3 = document.createElement("br");
+       
+       
         bookEl.appendChild(img);
-        bookEl.appendChild(bookTitlesSpan);
-        bookEl.appendChild(bookName);
+       bookEl.appendChild(linebreak);
         
-        console.log(authors);
+        bookEl.appendChild(bookTitlesSpan);
+        bookEl.appendChild(linebreak2);
+        bookEl.appendChild(bookName);
+        bookEl.appendChild(linebreak3);
+        bookEl.appendChild(bookDescriptionSpan);
+        
+       
+        
         appendSectionOne.appendChild(bookEl);
        //bookEl needs big upgrade
     }
@@ -107,6 +155,13 @@ getBookData("Anxiety");
 
 
 
+
+// for (var i = 0; i < btn.length; i++){
+//     btn[i].addEventListener("submit", function(){
+//         console.log("asidbv");
+//     })
+    
+//         }
 
 
 
@@ -278,4 +333,7 @@ getBookData("Anxiety");
 //     var windyEl = document.createElement("span");
 //     windyEl.textContent = windd + " mph";
 //     windEl.appendChild(windyEl);
+
+
+// }
 

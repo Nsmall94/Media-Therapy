@@ -1,20 +1,25 @@
 .header {
     padding: 10px;
+    padding-bottom: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
     text-align: center;
     font-weight: bold;
-    color: gray;
-    background-color: lightsteelblue;
+    color:rgb(5, 84, 84);
+    background-color:gold;
     
   }
 
 .logo {
-    font-family: Brush script MT;
+    font-family: Arial, Helvetica, sans-serif;
 }
   
 .topmenu {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding-bottom: 1%;
+    padding-top: 1%;
 
 }
 
@@ -23,16 +28,22 @@
     background-color: lightsteelblue;
     color:black;
     font-weight: bold;
-    border-radius: 10px;
-    margin: 1%;
-    padding: 15%;
-    width: 100%;
+    border-radius: 5%;
+    margin: 2%;
+    padding: 10%;
+    width: 80%;
     height: 25%;
+    border: 0%;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
     
 }
 
 h3 {
-    font-style: italic;
+    font-style:normal;
+    font: small;
+margin-top: 0px;
     
     align-items: center;
 
@@ -47,3 +58,40 @@ h3 {
     font-style: italic;
 
 }
+.btn {
+    border: none;
+
+}
+span{
+ 
+    color:black;
+    font-weight: bold;
+    border-radius: 5%;
+   
+    padding: 1%;
+    width: 80%;
+    height: 25%;
+    border: 0%;
+  
+    padding: 1%;
+}
+img{
+    padding:1%;
+}
+.problem-title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.problem-subtitle{
+    display: flex;
+    align-items: center;
+}
+.book-div{
+   
+    padding-bottom: 3%;
+    border-bottom: 10%;
+    font-size: x-large;
+}
+.description{
+    font-size: x-small;
+    font-weight: lighter;
+    padding: 2%;}
