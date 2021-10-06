@@ -12,7 +12,7 @@ The purpose of this page is ...
 
 
 ## Screenshot
-//!Mobil-Therapy Screenshot](assets/images/screenshot.png)
+[!Mobil-Therapy Screenshot](assets/images/screenshot.png)
 
 ## contribution
 Made By: 
