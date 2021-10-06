@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <title>Document</title>
 </head>
 
@@ -33,16 +33,42 @@
     </div>  
     <div class="row">
 
-        <div class="col">
+        <div class="col s4">
           
         <div class="search-engine">
             <h3 class="text-uppercase"> Book Search </h3>
-            <form id="" class="card-body">
+            <form id="user-form" class="card-body">
               <label class="label" for="bookname">Book </label>
               <input name="book" id="book-search" type="text" autofocus="true" class="form-input"  />
-              <button type="submit" class="btn waves-effect waves-light">search</button>
+              <button type="submit" class="btn waves-effect">search</button>
               </form>
+              
         </div>
+        <h3 class=" blue-text text-darken-4">Most Searched</h3>
+                   
+                     
+                        <div class="col align-self-center s4">
+                          <button id = "btn" class ="health-btn" data-vegetable="Anxiety" data-fruit="Anxiety">Anxiety</button>
+                        </div>
+                        <div class="col align-self-center s4">
+                          <button id = "btn" class ="health-btn" data-vegetable="Depression" data-fruit="Depression">Depression</button>
+                        </div>
+                        <div class="col align-self-center s4">
+                          <button id = "btn" class ="health-btn" data-vegetable="Career Change" data-fruit="Career Change">Career Change</button>
+                        </div>
+                        <div class="col align-self-center s4">
+                          <button id = "btn" class ="health-btn" data-vegetable="Cynicism" data-fruit="Cynicism">Cynicism</button>
+                        </div>
+                        <div class="col align-self-center s4">
+                          <button id = "btn" class ="health-btn" data-vegetable="Grumpiness" data-fruit="Grumpiness">Grumpiness </button>
+                        </div>
+                        <div class="col align-self-center s4">
+                          <button id = "btn" class ="health-btn" data-vegetable="Covid Blues" data-fruit="Covid Blues">Covid Blues</button>
+                        </div>
+                        <div class="col align-self-center s4">
+                            <button id = "btn" class ="health-btn" data-vegetable="Internet Addiction" data-fruit="Internet Addiction">Internet Addiction</button>
+                          </div>
+                          
         </div>
         <div class ="col-8">
             <h3 class = "problem-title"></h3>
@@ -52,40 +78,12 @@
             </div>
         </div>
     </div>
-
-<!--button selection-->
-        <section class="btn left red">
-        
-        </div>
-        <h3 class=" blue-text text-darken-4">Most Searched</h3>
-        <div class = "row">
-          <div class = "col btn red">
-            <div class="col align-self-center s4 hoverable">
-              <button id = "one" class ="health-btn" data-watermelon="Anxiety" data-fruit="Anxiety">Anxiety</button>
-            </div>
-            <div class="col align-self-center hoverable s4">
-              <button id = "two" class ="health-btn" data-watermelon="Depression" data-fruit="Depression">Depression</button>
-            </div>
-            <div class="col align-self-center hoverable s4">
-              <button id = "three" class ="health-btn" data-watermelon="Career Change" data-fruit="Career Change">Addiction</button>
-            </div>
-            <div class="col align-self-center hoverable s4">
-              <button id = "four" class ="health-btn" data-watermelon="something" data-fruit="smell">Self-Harm</button>
-            </div>
-            <div class="col align-self-center hoverable s4">
-              <button id = "five" class ="health-btn" data-watermelon="something" data-fruit="smell">PTSD </button>
-            </div>
-            <div class="col align-self-center hoverable s4">
-              <button id = "giraffe" class ="health-btn" data-watermelon="something" data-fruit="smell">Bipolar</button>
-            </div>
-            
-          </div>
-          
-          </div>
-        </div>
+<div class = "row">
+    
 
         </section>
-
+    </div>
+    </div>
     <main>
 
     </main>
