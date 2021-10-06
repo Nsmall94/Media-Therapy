@@ -2,15 +2,43 @@ var btn = document.getElementById("btn");
 var appendSectionOne = document.querySelector(".something");
 var problemTitle = document.querySelector(".problem-title");
 var problemSubTitle = document.querySelector(".problem-subtitle");
+var userInputEl = document.querySelector("#user-form");
+var problem = document.querySelector("#book-search");
+var btn = document.querySelector("#btn");
+
 $(".health-btn").click(handler)
 //if you have to dynamically update, use onclick: on("click", handler)
 function handler(){
-var bookData = $(this).data("watermelon");
+var bookData = $(this).data("vegetable");
 var dictionaryData = $(this).data("fruit");
+
 getBookData(bookData);
 // getDictionaryData(dictionaryData);
 }
 
+
+function inputHandler(event) {
+    event.preventDefault();
+  
+    var problemData = problem.value.trim();
+    console.log(problemData);
+    if (problemData) {
+        console.log(problemData);
+        problem.value = "";
+        getBookData(problemData);
+        
+
+        // console.log(cityData)
+        // console.log(city.value);
+
+    }
+    else {
+alert("wrong");
+    }
+
+}
+
+userInputEl.addEventListener("submit", inputHandler);
 // console.log(testArray.Problem)
 //api
 var getBookData = function (bookData) {
@@ -29,9 +57,9 @@ var getBookData = function (bookData) {
                  displayTitle(refinedData);
               
                    
-                   var butt = data.items[i].id;
+                   var steve = data.items[i].id;
                    
-                   var bookVolume = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves/" + butt + "/volumes"
+                   var bookVolume = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves/" + steve + "/volumes"
                    fetch(bookVolume).then(function (response) {
                     response.json().then(function (volume) {
                         console.log(volume)
@@ -107,6 +135,13 @@ getBookData("Anxiety");
 
 
 
+
+// for (var i = 0; i < btn.length; i++){
+//     btn[i].addEventListener("submit", function(){
+//         console.log("asidbv");
+//     })
+    
+//         }
 
 
 
