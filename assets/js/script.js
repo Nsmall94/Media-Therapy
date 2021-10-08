@@ -8,32 +8,32 @@ var btn = document.querySelector("#btn");
 
 $(".health-btn").click(handler)
 //if you have to dynamically update, use onclick: on("click", handler)
-function handler(){
-var bookData = $(this).data("vegetable");
-var dictionaryData = $(this).data("fruit");
+function handler() {
+    var bookData = $(this).data("vegetable");
+    var dictionaryData = $(this).data("fruit");
 
-getBookData(bookData);
-// getDictionaryData(dictionaryData);
+    getBookData(bookData);
+    // getDictionaryData(dictionaryData);
 }
 
 
 function inputHandler(event) {
     event.preventDefault();
-  
+
     var problemData = problem.value.trim();
     console.log(problemData);
     if (problemData) {
         console.log(problemData);
         problem.value = "";
         getBookData(problemData);
-        
+
 
         // console.log(cityData)
         // console.log(city.value);
 
     }
     else {
-alert("wrong");
+        alert("wrong");
     }
 
 }
@@ -43,65 +43,65 @@ userInputEl.addEventListener("submit", inputHandler);
 //api
 var getBookData = function (bookData) {
     //finds list we make on google books
-    var bookApi = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves" 
+    var bookApi = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves"
     fetch(bookApi).then(function (response) {
         response.json().then(function (data) {
-      
+
 
 
             //since the first search doesn't give you the actual books, this cycles through them
-           for( var i = 0; i < data.items.length; i++ ){
-               if(data.items[i].title === bookData){
-                //send out title and description
-                 var refinedData = data.items[i];
-                 displayTitle(refinedData);
-              
-                   
-                   var steve = data.items[i].id;
-                   
-                   var bookVolume = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves/" + steve + "/volumes"
-                   fetch(bookVolume).then(function (response) {
-                    response.json().then(function (volume) {
-                        console.log(volume)
-                       //sends data display books for loop
-                       displayBooks(volume);
+            for (var i = 0; i < data.items.length; i++) {
+                if (data.items[i].title === bookData) {
+                    //send out title and description
+                    var refinedData = data.items[i];
+                    displayTitle(refinedData);
+
+
+                    var steve = data.items[i].id;
+
+                    var bookVolume = "https://www.googleapis.com/books/v1/users/106161699745885220854/bookshelves/" + steve + "/volumes"
+                    fetch(bookVolume).then(function (response) {
+                        response.json().then(function (volume) {
+                            console.log(volume)
+                            //sends data display books for loop
+                            displayBooks(volume);
+                        });
                     });
-                   });
-               }
-           };
+                }
+            };
         });
     });
 };
 
-var displayTitle = function(refinedData){
+var displayTitle = function (refinedData) {
     console.log(refinedData);
     problemTitle.textContent = refinedData.title;
-    problemTitle.classList = "center-align";
+    problemTitle.classList = "center-align book-title";
     problemSubTitle.textContent = refinedData.description;
-    problemSubTitle.classList = "center-align";
-  
+    problemSubTitle.classList = "center-align book-subtitle";
+
 }
 
 //this needs major stylin
-var displayBooks = function(volume){
+var displayBooks = function (volume) {
     $("#something").empty();
-    for( var i = 0; i < volume.items.length; i++ ){
+    for (var i = 0; i < volume.items.length; i++) {
         // console.log(volume.items[i])
-        
+
         // var titles = volume.items[i].volumeInfo.title;
         var img = new Image();
         img.classList = "right-align"
-    img.src = volume.items[i].volumeInfo.imageLinks.thumbnail;
+        img.src = volume.items[i].volumeInfo.imageLinks.thumbnail;
 
         var bookEl = document.createElement("div");
-    
-//style this bookEl class
 
-    // var image = volume.items[i].volumeInfo.imageLinks.thumbnail;
+        //style this bookEl class
+
+        // var image = volume.items[i].volumeInfo.imageLinks.thumbnail;
 
         var authors = volume.items[i].volumeInfo.authors;
         var bookName = document.createElement("span");
-        bookName.textContent = " Author: "+ authors;
+        bookName.textContent = " Author: " + authors;
         bookName.classList = "center-align book-div";
 
         var bookTitles = volume.items[i].volumeInfo.title;
@@ -110,41 +110,41 @@ var displayBooks = function(volume){
         bookTitlesSpan.textContent = bookTitles;
         bookTitlesSpan.classList = "center-align book-div";
         bookEl.classList = " center-align description";
-var description = volume.items[i].volumeInfo.description;
+        var description = volume.items[i].volumeInfo.description;
         var bookDescriptionSpan = document.createElement("span");
-bookDescriptionSpan.textContent = description;
-bookDescriptionSpan.classlist = "description";
+        bookDescriptionSpan.textContent = description;
+        bookDescriptionSpan.classlist = "description";
         linebreak = document.createElement("br");
         linebreak2 = document.createElement("br");
         linebreak3 = document.createElement("br");
-       
-       
+
+
         bookEl.appendChild(img);
-       bookEl.appendChild(linebreak);
-        
+        bookEl.appendChild(linebreak);
+
         bookEl.appendChild(bookTitlesSpan);
         bookEl.appendChild(linebreak2);
         bookEl.appendChild(bookName);
         bookEl.appendChild(linebreak3);
         bookEl.appendChild(bookDescriptionSpan);
-        
-       
-        
+
+
+
         appendSectionOne.appendChild(bookEl);
-       //bookEl needs big upgrade
+        //bookEl needs big upgrade
     }
 
 
-    }
+}
 
 
 
 
 
 //this will be for the search
-$(document).ready(function(){
-    var outputList =document.getElementById("oawuberaou");
-})
+// $(document).ready(function () {
+//     var outputList = document.getElementById("oawuberaou");
+// })
 
 
 
@@ -160,7 +160,7 @@ getBookData("Anxiety");
 //     btn[i].addEventListener("submit", function(){
 //         console.log("asidbv");
 //     })
-    
+
 //         }
 
 
@@ -183,14 +183,14 @@ getBookData("Anxiety");
 
 // var testArray = 
 // [
-   
+
 //     {
 //     Books: ["sad book 1", "sad book 2"],
 //     Author: ["sad guy", "sad girl"],
 //     Description: "Ahebvasefv. ",
 //     Problem: "Anxiety"
 //     },
-    
+
 //     {
 //     Books: ["sad book 1", "sad book 2"],
 //     Author: ["sad guy", "sad girl"],
@@ -209,9 +209,9 @@ getBookData("Anxiety");
 //         problem: "Depression",
 //         tag: "something for the api",
 //         tag2: "something for the other api"
-        
+
 //     }
-    
+
 // ];
 
 
@@ -240,7 +240,7 @@ getBookData("Anxiety");
 
 //         console.log(text);
 //         getWeatherData(text);
-        
+
 //     });
 // }
 
@@ -276,18 +276,18 @@ getBookData("Anxiety");
 //    console.log(weatherr.list);
 //    $("#daily").empty();
 //    for(i = 0; i < weatherr.list.length; i++){
-       
+
 //        var title = weatherr.list[i].dt_txt;
-    
+
 //     var tempData = weatherr.list[i].main.temp;
 //     var windData = weatherr.list[i].wind.speed;
 //     var humidData = weatherr.list[i].main.humidity;
 //     console.log(title)
-      
+
 //     var tempppEl = document.createElement("div");
 //     tempppEl.classList = "col align-self-end dailyTwo"
-  
-       
+
+
 //     var titleEl = document.createElement("h4");
 // titleEl.textContent = title;
 
@@ -295,7 +295,7 @@ getBookData("Anxiety");
 //        tempText.textContent = "temp: " + tempData + " F ";
 //        var windText = document.createElement("span");
 //        windText.textContent = "wind Speed: " + windData + " MPH "
-       
+
 //        var humidityText = document.createElement("span");
 //        humidityText.textContent = "Humidity: " + humidData + "% "
 // tempppEl.appendChild(titleEl);
@@ -313,7 +313,7 @@ getBookData("Anxiety");
 //     console.log(weather.list[0].main.humidity);
 //     console.log(city);
 //     console.log(weather.city.name);
-    
+
 //     weatherBlockEl.textContent = weather.city.name + " " + weather.list[0].dt_txt;
 
 //     humidityEl.textContent = "";
