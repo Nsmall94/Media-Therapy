@@ -87,6 +87,10 @@ img{
     display: flex;
     align-items: center;
 }
+.quote-author{
+    display: flex;
+    align-items: center;
+}
 .book-div{
    
     padding-bottom: 3%;

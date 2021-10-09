@@ -4,6 +4,7 @@ var problemTitle = document.querySelector(".problem-title");
 var problemSubTitle = document.querySelector(".problem-subtitle");
 var userInputEl = document.querySelector("#user-form");
 var problem = document.querySelector("#book-search");
+var quoteAuthor = document.querySelector(".quote-author")
 var btn = document.querySelector("#btn");
 
 $(".health-btn").click(handler)
@@ -81,7 +82,7 @@ function quotes(quote){
         success : function(result) { 
             console.log(result.results); 
             
-            displayTitle(result);
+            otherFunction(result);
 
         }, 
         error : function(result) { 
@@ -90,16 +91,24 @@ function quotes(quote){
       }); 
      
 };
+var otherFunction = function(result){
+    console.log(result.results[0].quote);
+    console.log(result.results[0].author);
+    problemSubTitle.textContent = '"' +result.results[0].quote + '"';
+    problemSubTitle.classList = "center-align";
+    quoteAuthor.classList = "center-align book-subtitle";
+    quoteAuthor.textContent = "- " +result.results[0].author;
 
-quotes();
+}
+
+quotes("happy");
 
 var displayTitle = function (refinedData) {
-    
+    // console.log(results)
     console.log(refinedData);
     problemTitle.textContent = refinedData.title;
     problemTitle.classList = "center-align book-title";
-    problemSubTitle.textContent = refinedData.description;
-    problemSubTitle.classList = "center-align book-subtitle";
+   
 
 }
 
