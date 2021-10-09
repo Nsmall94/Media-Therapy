@@ -97,6 +97,22 @@ img{
     border-bottom: 10%;
     font-size: x-large;
 }
+.save{
+    background-color: lightsteelblue;
+    color:black;
+    font-weight: bold;
+    border-radius: 5%;
+    margin: 3%;
+    padding: 1%;
+    width: 10%;
+    height: 25%;
+    border: 0%;
+    background: gold;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    font-size: large;
+}
 .description{
     font-size: x-small;
     font-weight: lighter;

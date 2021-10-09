@@ -82,8 +82,9 @@ function quotes(quote){
         success : function(result) { 
             console.log(result.results); 
             
-            otherFunction(result);
-
+            quotePrinter(result);
+            
+console.log(result);
         }, 
         error : function(result) { 
           //handle the error
@@ -91,13 +92,18 @@ function quotes(quote){
       }); 
      
 };
-var otherFunction = function(result){
-    console.log(result.results[0].quote);
-    console.log(result.results[0].author);
-    problemSubTitle.textContent = '"' +result.results[0].quote + '"';
+
+
+
+var quotePrinter = function(result){
+    var random = result.results[Math.floor(Math.random() * result.results.length)];
+    console.log(random.quote)
+    console.log(random.author)
+    
+    problemSubTitle.textContent = '"' +random.quote + '"';
     problemSubTitle.classList = "center-align";
     quoteAuthor.classList = "center-align book-subtitle";
-    quoteAuthor.textContent = "- " +result.results[0].author;
+    quoteAuthor.textContent = "- " +random.author;
 
 }
 
@@ -147,6 +153,10 @@ var displayBooks = function (volume) {
         linebreak = document.createElement("br");
         linebreak2 = document.createElement("br");
         linebreak3 = document.createElement("br");
+        linebreak4 = document.createElement("br");
+        var saveButton = document.createElement("button");
+        saveButton.textContent = "save";
+        saveButton.classList = "save"
 
 
         bookEl.appendChild(img);
@@ -157,7 +167,8 @@ var displayBooks = function (volume) {
         bookEl.appendChild(bookName);
         bookEl.appendChild(linebreak3);
         bookEl.appendChild(bookDescriptionSpan);
-
+        bookEl.appendChild(linebreak4);
+        bookEl.appendChild(saveButton);
 
 
         appendSectionOne.appendChild(bookEl);
