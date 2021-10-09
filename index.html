@@ -23,11 +23,15 @@
         
         <p class="blue-text text-darken-4"> A recommendation of books to help with how you're feeling</p>
 
-    <div class="topmenu">
-        <a class="active" href="#home">Home</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div>
+      <nav>
+        <div class="nav-wrapper">
+          <ul class="left hide-on-med-and-down">
+            <li> <a href="#home">Home</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="#about">About</a></li>
+          </ul>
+        </div>
+      </nav>
       
       </div>
     </div>  
@@ -36,9 +40,9 @@
         <div class="col s4">
           
         <div class="search-engine">
-            <h3 class="text-uppercase"> Book Search </h3>
+            <h3 class="text-uppercase blue-text text-darken-4"> Book Search </h3>
             <form id="user-form" class="card-body">
-              <label class="label" for="bookname">Book </label>
+              <label class="label red-text text-darken-3" for="bookname">Book </label>
               <input name="book" id="book-search" type="text" autofocus="true" class="form-input"  />
               <button type="submit" class="btn waves-effect">search</button>
               </form>
@@ -48,25 +52,25 @@
                    
                      
             <div class="col align-self-center s4">
-              <button id = "btn" class ="health-btn" data-vegetable="Anxiety" data-fruit="Anxiety">Anxiety</button>
+              <button id = "btn" class ="health-btn" data-vegetable="Anxiety" data-fruit="anxiety">Anxiety</button>
             </div>
             <div class="col align-self-center s4">
-              <button id = "btn" class ="health-btn" data-vegetable="Depression" data-fruit="Depression">Depression</button>
+              <button id = "btn" class ="health-btn" data-vegetable="Depression" data-fruit="depression">Depression</button>
             </div>
             <div class="col align-self-center s4">
-              <button id = "btn" class ="health-btn" data-vegetable="Career Change" data-fruit="Career Change">Career Change</button>
+              <button id = "btn" class ="health-btn" data-vegetable="Career Change" data-fruit="career">Career Change</button>
             </div>
             <div class="col align-self-center s4">
               <button id = "btn" class ="health-btn" data-vegetable="Cynicism" data-fruit="Cynicism">Cynicism</button>
             </div>
             <div class="col align-self-center s4">
-              <button id = "btn" class ="health-btn" data-vegetable="Grumpiness" data-fruit="Grumpiness">Grumpiness </button>
+              <button id = "btn" class ="health-btn" data-vegetable="Grumpy" data-fruit="anger">Grumpiness </button>
             </div>
             <div class="col align-self-center s4">
-              <button id = "btn" class ="health-btn" data-vegetable="Covid Blues" data-fruit="Covid Blues">Covid Blues</button>
+              <button id = "btn" class ="health-btn" data-vegetable="Covid Blues" data-fruit="loneliness">Covid Blues</button>
             </div>
             <div class="col align-self-center s4">
-              <button id = "btn" class ="health-btn" data-vegetable="Internet Addiction" data-fruit="Internet Addiction">Internet Addiction</button>
+              <button id = "btn" class ="health-btn" data-vegetable="Internet Addiction" data-fruit="internet">Internet Addiction</button>
             </div>
                           
         </div>
@@ -93,7 +97,15 @@
     <footer id="footer" >
        
         <div class="contact" href="#contact">
-          Contact Information 
+          <div class="email-input">
+            <h2 class="center blue-text text-darken-4">If You Would Like To Know More About Any Mental Health Issues please Enter Your E-mail Below</h3>
+            <form id="user-form" class="card-body">
+              <label class="label red-text text-darken-3" for="bookname">Email </label>
+              <input name="email" id="email-input" type="text" autofocus="true" class="form-input"  />
+              <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+              </form>
+              
+          </div>
         </div>
 
     </footer>
