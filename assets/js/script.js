@@ -13,6 +13,7 @@ function handler() {
     var dictionaryData = $(this).data("fruit");
 
     getBookData(bookData);
+    quotes(dictionaryData);
     // getDictionaryData(dictionaryData);
 }
 
@@ -72,8 +73,28 @@ var getBookData = function (bookData) {
         });
     });
 };
+function quotes(quote){
+    $.ajax({ 
+        type : "GET", 
+        url : "https://api.paperquotes.com/apiv1/quotes/?tags=" + quote  , 
+        beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token 8e4f20e7331a660b5c8db679d6be07b0797ef440');},
+        success : function(result) { 
+            console.log(result.results); 
+            
+            displayTitle(result);
+
+        }, 
+        error : function(result) { 
+          //handle the error
+        } 
+      }); 
+     
+};
+
+quotes();
 
 var displayTitle = function (refinedData) {
+    
     console.log(refinedData);
     problemTitle.textContent = refinedData.title;
     problemTitle.classList = "center-align book-title";
