@@ -70,7 +70,7 @@ var getBookData = function (bookData) {
                             console.log(volume)
                             //sends data display books for loop
                             displayBooks(volume);
-                            saveTasks(volume);
+                            // saveTasks(volume);
                         });
                     });
                 }
@@ -178,7 +178,18 @@ var displayBooks = function (volume) {
 
         appendSectionOne.appendChild(bookEl);
         //bookEl needs big upgrade
-        $(".save").on("click", localSave)
+        $(".save").on("click", function (event){
+            event.stopImmediatePropagation();
+            console.log(this);
+            var text = $(this).closest("div");
+            saveTasks(text);
+            // var html = text.outerHTML;
+            // var data = { html: html};
+            console.log(text[0]);
+            // var json = JSON.stringify(text);
+            // console.log(json);
+            localStorage.setItem("some", JSON.stringify(text[0]));
+        });
 
     }
 
@@ -186,11 +197,11 @@ var displayBooks = function (volume) {
 }
 
 
-function localSave(){
-    console.log(this);
+
+   
     // var text = $(this).closest("div.row").find("span").val();
     // localStorage.setItem("butt", text);
-}
+
 
 
 //this will be for the search
