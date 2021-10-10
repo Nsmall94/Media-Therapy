@@ -4,9 +4,12 @@ var problemTitle = document.querySelector(".problem-title");
 var problemSubTitle = document.querySelector(".problem-subtitle");
 var userInputEl = document.querySelector("#user-form");
 var problem = document.querySelector("#book-search");
+var quoteAuthor = document.querySelector(".quote-author")
 var btn = document.querySelector("#btn");
+// var test = document.querySelector(".test");
 
-$(".health-btn").click(handler)
+// $(".health-btn").click(handler)
+$(".health-btn").on("click", handler)
 //if you have to dynamically update, use onclick: on("click", handler)
 function handler() {
     var bookData = $(this).data("vegetable");
@@ -16,6 +19,7 @@ function handler() {
     quotes(dictionaryData);
     // getDictionaryData(dictionaryData);
 }
+
 
 
 function inputHandler(event) {
@@ -66,6 +70,7 @@ var getBookData = function (bookData) {
                             console.log(volume)
                             //sends data display books for loop
                             displayBooks(volume);
+                            saveTasks(volume);
                         });
                     });
                 }
@@ -81,8 +86,10 @@ function quotes(quote){
         success : function(result) { 
             console.log(result.results); 
             
-            displayTitle(result);
-
+            quotePrinter(result);
+            
+            
+console.log(result);
         }, 
         error : function(result) { 
           //handle the error
@@ -91,15 +98,28 @@ function quotes(quote){
      
 };
 
-quotes();
+
+
+var quotePrinter = function(result){
+    var random = result.results[Math.floor(Math.random() * result.results.length)];
+    console.log(random.quote)
+    console.log(random.author)
+    
+    problemSubTitle.textContent = '"' +random.quote + '"';
+    problemSubTitle.classList = "center-align";
+    quoteAuthor.classList = "center-align book-subtitle";
+    quoteAuthor.textContent = "- " +random.author;
+
+}
+
+quotes("happy");
 
 var displayTitle = function (refinedData) {
-    
+    // console.log(results)
     console.log(refinedData);
     problemTitle.textContent = refinedData.title;
     problemTitle.classList = "center-align book-title";
-    problemSubTitle.textContent = refinedData.description;
-    problemSubTitle.classList = "center-align book-subtitle";
+   
 
 }
 
@@ -126,7 +146,7 @@ var displayBooks = function (volume) {
         bookName.classList = "center-align book-div";
 
         var bookTitles = volume.items[i].volumeInfo.title;
-        console.log(bookTitles)
+        
         var bookTitlesSpan = document.createElement("span");
         bookTitlesSpan.textContent = bookTitles;
         bookTitlesSpan.classList = "center-align book-div";
@@ -138,6 +158,10 @@ var displayBooks = function (volume) {
         linebreak = document.createElement("br");
         linebreak2 = document.createElement("br");
         linebreak3 = document.createElement("br");
+        linebreak4 = document.createElement("br");
+        var saveButton = document.createElement("button");
+        saveButton.textContent = "save";
+        saveButton.classList = "save"
 
 
         bookEl.appendChild(img);
@@ -148,18 +172,25 @@ var displayBooks = function (volume) {
         bookEl.appendChild(bookName);
         bookEl.appendChild(linebreak3);
         bookEl.appendChild(bookDescriptionSpan);
-
+        bookEl.appendChild(linebreak4);
+        bookEl.appendChild(saveButton);
 
 
         appendSectionOne.appendChild(bookEl);
         //bookEl needs big upgrade
+        $(".save").on("click", localSave)
+
     }
 
 
 }
 
 
-
+function localSave(){
+    console.log(this);
+    // var text = $(this).closest("div.row").find("span").val();
+    // localStorage.setItem("butt", text);
+}
 
 
 //this will be for the search
@@ -176,7 +207,28 @@ getBookData("Anxiety");
 
 
 
+var saveTasks = function(junk) {
+localStorage.setItem("trash", JSON.stringify(junk))
+};
 
+var loadTasks = function(){
+var savedBooks = localStorage.getItem("trash");
+savedBooks = JSON.parse(savedBooks);
+var title = savedBooks.items[0].volumeInfo.title;
+console.log(title);
+
+        
+    //     var bookTitlesSpan = document.createElement("h1");
+    //     bookTitlesSpan.textContent = title;
+    //     bookTitlesSpan.classList = "test";
+    //     var bookEl = document.createElement("div");
+    //     bookEl.classList = " test";
+    //     bookEl.appendChild(bookTitlesSpan);
+    //    test.appendChild(bookEl);
+       
+
+};
+loadTasks();
 // for (var i = 0; i < btn.length; i++){
 //     btn[i].addEventListener("submit", function(){
 //         console.log("asidbv");
