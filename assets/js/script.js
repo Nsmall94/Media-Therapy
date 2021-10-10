@@ -6,8 +6,10 @@ var userInputEl = document.querySelector("#user-form");
 var problem = document.querySelector("#book-search");
 var quoteAuthor = document.querySelector(".quote-author")
 var btn = document.querySelector("#btn");
+// var test = document.querySelector(".test");
 
-$(".health-btn").click(handler)
+// $(".health-btn").click(handler)
+$(".health-btn").on("click", handler)
 //if you have to dynamically update, use onclick: on("click", handler)
 function handler() {
     var bookData = $(this).data("vegetable");
@@ -17,6 +19,7 @@ function handler() {
     quotes(dictionaryData);
     // getDictionaryData(dictionaryData);
 }
+
 
 
 function inputHandler(event) {
@@ -67,6 +70,7 @@ var getBookData = function (bookData) {
                             console.log(volume)
                             //sends data display books for loop
                             displayBooks(volume);
+                            saveTasks(volume);
                         });
                     });
                 }
@@ -83,6 +87,7 @@ function quotes(quote){
             console.log(result.results); 
             
             quotePrinter(result);
+            
             
 console.log(result);
         }, 
@@ -141,7 +146,7 @@ var displayBooks = function (volume) {
         bookName.classList = "center-align book-div";
 
         var bookTitles = volume.items[i].volumeInfo.title;
-        console.log(bookTitles)
+        
         var bookTitlesSpan = document.createElement("span");
         bookTitlesSpan.textContent = bookTitles;
         bookTitlesSpan.classList = "center-align book-div";
@@ -173,13 +178,19 @@ var displayBooks = function (volume) {
 
         appendSectionOne.appendChild(bookEl);
         //bookEl needs big upgrade
+        $(".save").on("click", localSave)
+
     }
 
 
 }
 
 
-
+function localSave(){
+    console.log(this);
+    // var text = $(this).closest("div.row").find("span").val();
+    // localStorage.setItem("butt", text);
+}
 
 
 //this will be for the search
@@ -196,7 +207,28 @@ getBookData("Anxiety");
 
 
 
+var saveTasks = function(junk) {
+localStorage.setItem("trash", JSON.stringify(junk))
+};
 
+var loadTasks = function(){
+var savedBooks = localStorage.getItem("trash");
+savedBooks = JSON.parse(savedBooks);
+var title = savedBooks.items[0].volumeInfo.title;
+console.log(title);
+
+        
+    //     var bookTitlesSpan = document.createElement("h1");
+    //     bookTitlesSpan.textContent = title;
+    //     bookTitlesSpan.classList = "test";
+    //     var bookEl = document.createElement("div");
+    //     bookEl.classList = " test";
+    //     bookEl.appendChild(bookTitlesSpan);
+    //    test.appendChild(bookEl);
+       
+
+};
+loadTasks();
 // for (var i = 0; i < btn.length; i++){
 //     btn[i].addEventListener("submit", function(){
 //         console.log("asidbv");
