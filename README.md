@@ -1,7 +1,7 @@
 # Media-Therapy
 
 ## Purpose
-The purpose of this page is ...
+The purpose of this page is to provide anyone suffering from various kinds of problems a database where they can find various book featuring a fictional characters that share similar circumstances, hopefully helping them through the power of fiction 
 
 ## Built With
 * HTML
@@ -12,7 +12,7 @@ The purpose of this page is ...
 * Google Books API
 
 # Website
-
+https://nsmall94.github.io/Media-Therapy/
 
 ## Screenshot
 ![!Mobil-Therapy Screenshot](assets/images/Screenshot_1.png)
@@ -21,6 +21,6 @@ The purpose of this page is ...
 
 ## contribution
 Made By: 
-Dan Natale
-Symone Seldon
+Dan Natale,
+Symone Seldon,
 Nick Small
