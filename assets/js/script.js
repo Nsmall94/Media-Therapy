@@ -7,6 +7,7 @@ var problem = document.querySelector("#book-search");
 var quoteAuthor = document.querySelector(".quote-author")
 var btn = document.querySelector("#btn");
 // var test = document.querySelector(".test");
+var array = [];
 
 // $(".health-btn").click(handler)
 $(".health-btn").on("click", handler)
@@ -19,7 +20,7 @@ function handler() {
     quotes(dictionaryData);
     // getDictionaryData(dictionaryData);
 }
-
+$(".myBooks").on("click", loadItem)
 
 
 function inputHandler(event) {
@@ -178,17 +179,41 @@ var displayBooks = function (volume) {
 
         appendSectionOne.appendChild(bookEl);
         //bookEl needs big upgrade
+
+
+       
+
+
+
+
         $(".save").on("click", function (event){
+
+
+
+            
             event.stopImmediatePropagation();
-            console.log(this);
+            console.log(this.textContent);
+            
+           var btn = this;
+           btn.disabled = true;
             var text = $(this).closest("div");
             saveTasks(text);
-            // var html = text.outerHTML;
-            // var data = { html: html};
-            console.log(text[0]);
-            // var json = JSON.stringify(text);
+            console.log(text[0])
+            // var res = string(text[0]);
+
+            
+           array.push(text[0].innerHTML);
+           console.log(array)
+          
+            
+            // var data = { html: text};
+            // console.log(data);
+            // var json = JSON.stringify(data);
             // console.log(json);
-            localStorage.setItem("some", JSON.stringify(text[0]));
+
+            localStorage.setItem("some", array);
+
+        
         });
 
     }
@@ -197,6 +222,22 @@ var displayBooks = function (volume) {
 }
 
 
+
+
+function loadItem(){
+    $("#something").empty();
+    var stuff = localStorage.getItem("some");
+   console.log(stuff)
+  
+   var stuffDiv = document.createElement("div");
+   stuffDiv.classList = " center-align description";
+   stuffDiv.innerHTML = stuff;
+   console.log(stuff)
+   console.log(stuffDiv);
+//    stuffDiv.appendChild(stuff);
+   appendSectionOne.appendChild(stuffDiv);
+ $(".save").remove();
+}
 
    
     // var text = $(this).closest("div.row").find("span").val();
@@ -220,26 +261,11 @@ getBookData("Anxiety");
 
 var saveTasks = function(junk) {
 localStorage.setItem("trash", JSON.stringify(junk))
-};
-
-var loadTasks = function(){
-var savedBooks = localStorage.getItem("trash");
-savedBooks = JSON.parse(savedBooks);
-var title = savedBooks.items[0].volumeInfo.title;
-console.log(title);
-
-        
-    //     var bookTitlesSpan = document.createElement("h1");
-    //     bookTitlesSpan.textContent = title;
-    //     bookTitlesSpan.classList = "test";
-    //     var bookEl = document.createElement("div");
-    //     bookEl.classList = " test";
-    //     bookEl.appendChild(bookTitlesSpan);
-    //    test.appendChild(bookEl);
-       
 
 };
-loadTasks();
+
+
+
 // for (var i = 0; i < btn.length; i++){
 //     btn[i].addEventListener("submit", function(){
 //         console.log("asidbv");
@@ -420,4 +446,3 @@ loadTasks();
 
 
 // }
-
