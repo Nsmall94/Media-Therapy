@@ -15,9 +15,9 @@ The purpose of this page is ...
 
 
 ## Screenshot
-![!Mobil-Therapy Screenshot](assets/images/screenshot_1.png)
-![!Mobil-Therapy Screenshot](assets/images/screenshot_2.png)
-![!Mobil-Therapy Screenshot](assets/images/screenshot_3.png)
+![!Mobil-Therapy Screenshot](assets/images/Screenshot_1.png)
+![!Mobil-Therapy Screenshot](assets/images/Screenshot_2.png)
+![!Mobil-Therapy Screenshot](assets/images/Screenshot_3.png)
 
 ## contribution
 Made By: 
