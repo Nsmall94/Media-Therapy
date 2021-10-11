@@ -174,12 +174,6 @@ img{
   }
   @media screen and (max-width: 320px) {
   
-    .myBooks {
-    width: 90%;
-    display: block; /* Stops it from floating */
-    margin: auto; /* Ensures that it is centered */
-    margin-bottom: 25px; /* Space between the stacked elements */
-      
-    }
+    
     
   }
