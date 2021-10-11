@@ -148,3 +148,19 @@ img{
     border: 0px solid transparent;
     text-shadow: 0px 0px 0px transparent;
 }
+.remove{
+    background-color: lightsteelblue;
+    color:black;
+    font-weight: bold;
+    border-radius: 5%;
+    margin: 3%;
+    padding: 1%;
+    width: 15%;
+    height: 25%;
+    border: 0%;
+    background:crimson;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    font-size: large;
+}
