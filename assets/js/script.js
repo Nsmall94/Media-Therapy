@@ -217,7 +217,7 @@ function quotes(quote){
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token 8e4f20e7331a660b5c8db679d6be07b0797ef440');},
         success : function(result) { 
             console.log(result.results); 
-            
+            problemTitle.textContent = quote;
             quotePrinter(result);
             
             
@@ -248,7 +248,7 @@ var quotePrinter = function(result){
 
 }
 
-quotes("happy");
+quotes("Happy");
 
 var displayTitle = function (refinedData) {
     // console.log(results)
