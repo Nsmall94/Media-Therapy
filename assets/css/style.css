@@ -49,6 +49,8 @@
     box-shadow: 0px 0px 0px transparent;
     border: 0px solid transparent;
     text-shadow: 0px 0px 0px transparent;
+    display: flex;
+    flex-wrap: wrap;
     
 }
 .myBooks{
@@ -173,6 +175,30 @@ col, .s4{
     border-bottom: 1px solid #000
 }
 
+.myBooks{
+    background-color: lightsteelblue;
+    color:black;
+    font-weight: bold;
+    border-radius: 5%;
+    margin: 2%;
+    padding: 10%;
+    width: 80%;
+    height: 25%;
+    border: 0%;
+
+    background: rgb(206, 9, 9);
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+5
+    
+  }
+
+}
 
 .remove{
     background-color: lightsteelblue;
@@ -190,6 +216,7 @@ col, .s4{
     text-shadow: 0px 0px 0px transparent;
     font-size: large;
 }
+
 @media only screen and (max-width: 1200px) {
     .col-7{
 margin-left:16%;
@@ -320,3 +347,4 @@ margin-left:16%;
   
 
 }
+
