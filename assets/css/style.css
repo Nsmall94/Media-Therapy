@@ -9,11 +9,20 @@
     background-color:gold;
     
   }
+  .lime{
+      background-color: darkgray;
+  }
+  .lime.accent-2{
+      background-color: darkgray;
+  }
 
 .logo {
     font-family: Arial, Helvetica, sans-serif;
 }
-  
+  .email-input{
+      padding-left:10%;
+      padding-right:10%;
+  }
 .topmenu {
     display: flex;
     align-items: center;
@@ -31,6 +40,7 @@
     font-weight: bold;
     border-radius: 5%;
     margin: 2%;
+    margin-left: 30%;
     padding: 10%;
     width: 80%;
     height: 25%;
@@ -42,6 +52,26 @@
     display: flex;
     flex-wrap: wrap;
     
+}
+.myBooks{
+    
+    background-color: lightsteelblue;
+    color:black;
+    font-weight: bold;
+    border-radius: 5%;
+    margin: 2%;
+    margin-left: 30%;
+    padding: 10%;
+    width: 80%;
+    height: 25%;
+    border: 0%;
+    background:yellow;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    
+
+
 }
 
 h3 {
@@ -99,7 +129,9 @@ img{
     border-bottom: 10%;
     font-size: x-large;
 }
+
 .save{
+  
     background-color: lightsteelblue;
     color:black;
     font-weight: bold;
@@ -114,15 +146,23 @@ img{
     border: 0px solid transparent;
     text-shadow: 0px 0px 0px transparent;
     font-size: large;
+    
+}
+.col-7{
+    margin-right:10%;
+}
+.user-form{
+    margin-left:5%;
 }
 .description{
     font-size: x-small;
     font-weight: lighter;
     padding: 2%;}
-.col-4{
-    margin-left: 5%;
+col, .s4{
+    margin-left: 10%;
+    
 }
-.col-7{
+.s8{
     margin-right: 2%;
 }
 .book-title{
@@ -134,6 +174,7 @@ img{
     padding-bottom: 5%;
     border-bottom: 1px solid #000
 }
+
 .myBooks{
     background-color: lightsteelblue;
     color:black;
@@ -153,6 +194,7 @@ img{
     display: flex;
     flex-wrap: wrap;
 }
+
 @media only screen and (max-width: 1200px) {
     body {
       background-color: rgba(71, 67, 67, 0.288);
@@ -174,10 +216,11 @@ img{
     }
   }
   @media screen and (max-width: 320px) {
-  
-    
-    
+    body {
+      background-color: rgba(71, 67, 67, 0.288);
+    }
   }
+
 
 
 .remove{
