@@ -175,16 +175,11 @@ img{
   }
   @media screen and (max-width: 320px) {
   
-<<<<<<< HEAD
     
-=======
-   
-    }
->>>>>>> 84700b189c6abdfa626ae0df1c3cebf0f7952f45
     
   }
 
-}
+
 .remove{
     background-color: lightsteelblue;
     color:black;
